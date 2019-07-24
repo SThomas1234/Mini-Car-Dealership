@@ -1,0 +1,266 @@
+import java.util.Scanner;
+public class Cars {
+public static void main(String[] args) {
+    Sedan Toyota = new Sedan("Toyota Supra", 19, 4, 150000, "Red");
+    Sedan Nissan = new Sedan("Nissan Altima", 27, 5, 86000, "Gray");
+    Sedan Lamborghini = new Sedan("Lamborghini Aventador", 10, 2, 1500, "Crimson");
+    Sedan Honda2 = new Sedan (“Honda S2000”, 18, 2, 25000, “Gray”);
+    Sedan Nissan1 = new Sedan (“Nissan GTR”, 16, 4, 5000, “Silver”);
+    Sedan Honda3 = new Sedan (“Honda Civic”, 32, 5, 150000, “Red”);
+    Sedan Toyota4 = new Sedan (“Toyota Corolla”, 30, 5, 100000, “Red”);
+    Sedan Toyota5 = new Sedan (“Toyota Camry”, 29, 5, 15000. “Silver”);
+    Sedan Honda4 = new Sedan (“Honda Accord”, 30, 5, 2500, “Red”);
+    Sedan Honda5 = new Sedan (“Honda Insight”, 55, 5, 25000, “Blue”);
+    Sedan Toyota6 = new Sedan (“Toyota Celica”, 29, 4, 240000, “Silver”);
+
+		SUV Lincoln = new SUV("Lincoln Navigator", 16, 7, 2600, "Black");
+		SUV Honda = new SUV("Honda Pilot", 20, 7, 67000, "Forest Green");
+		SUV Toyota7 = new Toyota(“Toyota Highlander”, 21, 7, 1200,  “Black”);
+		SUV Toyota8 = new Toyota(“Toyota Land Cruiser”, 13, 8, 250000, “Red”);
+		System.out.println();
+
+		Cross Toyota1 = new Cross("Toyota CHR", 27, 5, 33000, "Red");
+		Cross Honda1 = new Cross("Honda CRV", 28, 5, 25000, "Yellow");
+		Cross Ford = new Cross("Ford Escape", 23, 5, 5670, "Purple");
+
+		Truck Ford1 = new Truck("Ford F150", 17, 3, 15000, "Electric Blue");
+		Truck Toyota2 = new Truck("Toyota Tundra", 15, 5, 110000, "Blue");
+		Truck Toyota3 = new Truck("Toyota Tacoma", 20, 4, 130000, "Silver");
+		
+		Scanner scan = new Scanner (System.in);
+		
+		System.out.println("What type of car are you looking for?");
+		String myString = scan.nextLine();
+
+		
+		if (myString.equalsIgnoreCase("Sedans"))
+		{
+			System.out.println("Here's what we offer: ");
+			System.out.println(Toyota.toString());
+			System.out.println(Nissan.toString());
+			System.out.println(Lamborghini.toString());
+			System.out.println();
+		}
+		
+		if (myString.equalsIgnoreCase("SUVs"))
+		{
+			System.out.println("Here's what we offer: ");
+			System.out.println(Lincoln.toString());
+			System.out.println(Honda.toString());
+			System.out.println();
+		}
+		
+		if (myString.equalsIgnoreCase("Crossovers"))
+		{
+			System.out.println("Here's what we offer: ");
+			System.out.println(Toyota1.toString());
+			System.out.println(Honda1.toString());
+			System.out.println(Ford.toString());
+			System.out.println();
+		}
+
+		if (myString.equalsIgnoreCase("Trucks"))
+		{
+			System.out.println("Here's what we offer: ");
+			System.out.println(Ford1.toString());
+			System.out.println(Toyota2.toString());
+			System.out.println(Toyota3.toString());
+		}		
+	}
+}
+
+public abstract class Car {
+	private String name;
+
+	public Car(String carName) {
+		name = carName;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public String toString() {
+		return name;
+	}
+}
+
+
+public class Sedan extends Car{
+	private int mpg;
+	private int seats;
+	private int mileage;
+	private String color;
+	
+	public Sedan (String sedanName, int carMpg, int carSeats, int carMileage, String carColor)
+	{
+		super(sedanName);
+		mpg = carMpg;
+		seats = carSeats;
+		mileage = carMileage;
+		color = carColor;
+	}
+	
+	public int getMpg()
+	{
+		return mpg;
+	}
+	
+	public int getSeats()
+	{
+		return seats;
+	}
+	
+	public int getMileage()
+	{
+		return mileage;
+	}
+	
+	public String getColor()
+	{
+		return color;
+	}
+	
+	public String toString()
+	{
+		return super.toString() + " is a sedan, with " + mpg + "mpg. It can hold " + seats + " people. "
+								+ "It's " + color + " and has " + mileage + " miles.";
+  }
+}
+
+public class SUV extends Car {
+	private int mpg2;
+	private int Seats;
+	private int Mileage;
+	private String Color;
+	
+	public SUV (String suvName, int Suvmpg2, int suvSeats, int carMileage2, String carColor2)
+	{
+		super (suvName);
+		mpg2 = Suvmpg2;
+		Seats = suvSeats;
+		Mileage = carMileage2;
+		Color = carColor2;
+	
+		// TODO Auto-generated constructor stub
+	}
+	
+	public int getMpg2()
+	{
+		return mpg2;
+	}
+	
+	public int getSeats()
+	{
+		return Seats;
+	}
+	
+	public int getMileage()
+	{
+		return Mileage;
+	}
+	
+	public String getColor()
+	{
+		return Color;
+	}
+	
+	
+	public String toString()
+	{
+		return super.toString()  + " is a SUV, with " + mpg2 + "mpg. It can hold " + Seats + " people. "
+					+ "It's " + Color + " and has " + Mileage + " miles.";	
+	}
+
+}
+
+}
+
+public class Cross extends Car{
+	private int mpg3;
+	private int Seatss;
+	private int Miles;
+	private String Colorr;
+	
+	public Cross(String CrossName, int Crossmpg3, int crossSeats, int carMiles, String carColor3)
+	{
+		super(CrossName);
+		mpg3 = Crossmpg3;
+		Seatss = crossSeats;
+		Miles = carMiles;
+		Colorr = carColor3;
+	}
+	
+	public int getmpg3()
+	{
+		return mpg3;
+	}
+	
+	public int getSeats()
+	{
+		return Seatss;
+	}
+	
+	public int getMileage()
+	{
+		return Miles;
+	}
+	
+	public String getColor()
+	{
+		return Colorr;
+	}
+	
+	public String toString()
+	{
+		return "The " + super.toString() + " is a crossover, with " + mpg3 + "mpg. It can hold " + Seatss + " people. "
+				+ "It's " + Colorr +" and has " + Miles + " miles.";
+		
+	}
+
+}
+
+
+public class Truck extends Car {
+	private int mpg4;
+	private int Seatz;
+	private int Mile;
+	private String Colorz;
+	
+	public Truck (String truckName, int truckMpg4, int truckSeatz, int truckMile, String truckColor4)
+	{
+		super(truckName);
+		mpg4 = truckMpg4;
+		Seatz = truckSeatz;
+		Mile = truckMile;
+		Colorz = truckColor4;
+	}
+	
+	public int getmpg3()
+	{
+		return mpg4;
+	}
+	
+	public int getSeats()
+	{
+		return Seatz;
+	}
+	
+	public int getMileage()
+	{
+		return Mile;
+	}
+	
+	public String getColor()
+	{
+		return Colorz;
+	}
+	
+	public String toString()
+	{
+		return "The " + super.toString() + " is a truck, with " + mpg4 + "mpg. It can hold " + Seatz + " people. "
+				+ "It's " + Colorz +" and has " + Mile + " miles.";
+		
+	}
+
+}
